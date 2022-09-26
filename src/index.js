@@ -15,8 +15,17 @@ const store = createStore(movies);
 console.log("store", store);
 
 // empty as in reducer we have a default argument for state be to [] if not present
-console.log("STATE ", store.getState());
 
+// getState => get the STATE
+
+console.log("BEFORE STATE ", store.getState());
+
+store.dispatch({
+  type: 'ADD_MOVIES',
+  movies: [{ name: ' Superman ' }]
+});
+
+console.log("AFTER STATE ", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -23,9 +23,12 @@ function App() {
 
         <div className="list">
           {
-            data.map(movie => (
+            data.map((movie, index) => (
               // passing via props
-              <MovieCard movie={movie} />
+              <MovieCard
+                movie={movie}
+                key={`movies-${index}`}
+              />
             ))
           }
 

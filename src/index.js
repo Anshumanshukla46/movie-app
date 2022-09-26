@@ -7,19 +7,21 @@ import { createStore } from 'redux';
 // file import 
 import './index.css';
 import App from './components/App'; // changed app.js location
-
 import movies from './reducers';
+
 
 // passed reducer
 const store = createStore(movies);
 console.log("store", store);
 
+/*
 // empty as in reducer we have a default argument for state be to [] if not present
-
 // getState => get the STATE
-
 console.log("BEFORE STATE ", store.getState());
 
+
+
+// Action
 store.dispatch({
   type: 'ADD_MOVIES',
   movies: [{ name: ' Superman ' }]
@@ -27,9 +29,12 @@ store.dispatch({
 
 console.log("AFTER STATE ", store.getState());
 
+*/
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* passing store as a prop */}
+    <App store={store} />
   </React.StrictMode>
 );

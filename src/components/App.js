@@ -7,13 +7,17 @@ import Navbar from "./Navbar";
 
 import MovieCard from "./MovieCard";
 
+
+import { addMovies } from "../actions/index";
+
+
 class App extends React.Component {
 
   componentDidMount() {
 
     const { store } = this.props;
 
-    // after each dispatching the "this" subscribe function will be called
+    // after each dispatching "this" subscribe function will be called
     store.subscribe(() => {
       console.log('UPDATED');
       this.forceUpdate();
@@ -21,10 +25,9 @@ class App extends React.Component {
 
     // make api call
     // dispatch Action
-    this.props.store.dispatch({
-      type: 'ADD_MOVIES',
-      movies: data
-    });
+    this.props.store.dispatch(addMovies(data));
+
+
 
     console.log("STATE ", this.props.store.getState());
   }

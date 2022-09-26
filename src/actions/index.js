@@ -10,6 +10,9 @@
 //  action types
 export const ADD_MOVIES = "ADD_MOVIES";
 
+export const ADD_FAVOURITE = "ADD_FAVOURITE";
+
+
 
 // these function as action creators 
 export function addMovies(movies) {
@@ -20,3 +23,15 @@ export function addMovies(movies) {
         }
     );
 }
+
+
+export function addFavourite(movie) {
+    return (
+        {
+            type: ADD_FAVOURITE,
+            // movies: movie
+            movie
+        }
+    );
+}
+

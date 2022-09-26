@@ -32,6 +32,22 @@ class App extends React.Component {
     console.log("STATE ", this.props.store.getState());
   }
 
+  // changing button from favourite  to un-favourite by checking wheather the movie is favourite or not
+
+
+  isMovieFavourite = (movie) => {
+    const { favourites } = this.props.store.getState();
+
+    const index = favourites.indexOf(movie);
+
+    if (index !== -1) {
+      return true; // that is favourited
+    }
+    return false;
+  }
+
+
+
   render() {
 
     // const movies = this.props.store.getState(); 
@@ -63,7 +79,12 @@ class App extends React.Component {
                 // passing via props
                 <MovieCard
                   movie={movie}
+
                   key={`movies-${index}`}
+
+                  dispatch={this.props.store.dispatch}
+
+                  isFavourite={this.isMovieFavourite(movie)}
                 />
               ))
             }

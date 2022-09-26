@@ -34,7 +34,12 @@ class App extends React.Component {
 
   render() {
 
-    const movies = this.props.store.getState();
+    // const movies = this.props.store.getState(); 
+    // as now we have an object {list:{}, Favourites:{}}
+
+    const { list } = this.props.store.getState();
+
+    console.log('NEW STATE ', this.props.store.getState())
 
     console.log('RENDER');
 
@@ -54,7 +59,7 @@ class App extends React.Component {
 
           <div className="list">
             {
-              movies.map((movie, index) => (
+              list.map((movie, index) => (
                 // passing via props
                 <MovieCard
                   movie={movie}
